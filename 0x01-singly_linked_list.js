@@ -40,17 +40,20 @@ class singly_linked_list {
     this.head = this.head.next
     this.size--
   }
-  /** delete at index 4657*/
-
+  /** delete at index*/
   delete_at(index) {
     if(!this.head ||this.index < 0 || index >= this.size){
       return
     }
     if(this.size == 1) {
-      this.head == null
+      this.head = null
+      this.size--;
+      return
     }
     if (index == 0){
       this.head = this.head.next
+      this.size--;
+      return
     }
     let previous = null
     let i = 0
@@ -62,6 +65,7 @@ class singly_linked_list {
       i++
     }
     previous.next = current.next
+    this.size--;
   }
 
   /** Print the content of list */
