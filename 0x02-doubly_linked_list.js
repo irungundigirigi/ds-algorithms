@@ -18,7 +18,10 @@ class doubly_linked_list{
         this.size = 0
     }
 
-    /** adds a node to the end of list */
+    /** 
+     * adds a node to the end of list 
+     * Time Complexity: O(1)
+     */
     append_node(value) {
         let new_node = new Node(value);
         if(!this.head){
@@ -31,7 +34,11 @@ class doubly_linked_list{
         this.tail.next = new_node
         this.tail = new_node
     }
-    /** adds a node with value v at specific index idx*/
+    /** 
+     * adds a node with value v at specific index idx
+     * Time complexity: O(n)
+     * NB optimize to transverse via quickest side - from tail/head
+     * */
     insertAt(idx, v) {
         let new_node = new Node(v)
         let i = 0
