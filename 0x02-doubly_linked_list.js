@@ -32,7 +32,7 @@ class doubly_linked_list{
         this.tail = new_node
     }
     /** adds a node with value v at specific index idx*/
-    insert_at(idx, v) {
+    insertAt(idx, v) {
         let new_node = new Node(v)
         let i = 0
         let current = this.head
@@ -41,11 +41,13 @@ class doubly_linked_list{
             new_node.next = this.head
             this.head.prev = new_node
             this.head = this.head.prev
+            this.size++
             return
         }
         while(i < idx) {
             prv = current
             current = current.next
+            i++
         }
         new_node.next = current
         new_node.prev = prv
@@ -67,6 +69,8 @@ let dll = new doubly_linked_list
 dll.append_node(23)
 dll.append_node(2)
 dll.append_node(22)
-dll.insert_at(0,9)
+dll.insertAt(0,9)
+dll.insertAt(1, 9.5)
+dll.insertAt(1, 9.6)
 
 dll.print_list()
