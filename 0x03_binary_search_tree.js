@@ -17,7 +17,7 @@ class BinarySearchTree {
 
     insert(value){
         const new_node = new bst_node(value)
-        if(!root){
+        if(!this.root){
             this.root = new_node
             return
         }
@@ -42,4 +42,36 @@ class BinarySearchTree {
             }
         }
     }
+    /** 
+     * Binary search tree transversal
+     * INORDER: left->root-> right
+     * PREORDER: root->left->right
+     * POSTORDER: left->right->root
+    */
+   print_inorder() {
+    const stack = [];
+    let current = this.root;
+
+    while(current || stack.length) {
+        while(current) {
+            stack.push(current)
+            current = current.left
+        }
+
+        current = stack.pop()
+        console.log(current.value)
+
+        current = current.right
+    }
+   }
+
 }
+
+let bst = new BinarySearchTree()
+bst.insert(2)
+bst.insert(23)
+bst.insert(10)
+bst.insert(7)
+bst.insert(19)
+bst.insert(1)
+bst.print_inorder()
